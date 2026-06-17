@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P o r t f o l i o</title>
+    <link type="img/jpeg" href="images/cam.jpeg" rel="icon">
+    <link rel="stylesheet" href="style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+   <!-- AOS Library CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- AOS Library JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<style> 
+
+
+
+h2 {
+      text-align: center;
+      color: var(--active);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      padding-top: 55px;
+    }
+
+    /* Category Buttons */
+    .works-nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .work-btn {
+      background: none;
+      color: white;
+      border: 2px solid var(--active);
+      padding: 8px 18px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .work-btn:hover,
+    .work-btn.active {
+      background-color: var(--active);
+      color: #111;
+    }
+
+    /* Works Container */
+    .works-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 20px 60px 20px;
+    }
+
+    .work-item {
+      background: #1c1c1c;
+      border-radius: 15px;
+      overflow: hidden;
+      width: 300px;
+      display: none;
+      flex-direction: column;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .work-item.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .work-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .work-content {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .work-content h3 {
+      color: var(--active);
+      margin: 0 0 10px 0;
+    }
+
+    .work-content p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #ddd;
+    }
+  
+
+  </style>
+
+</head>
+<body data-aos="fade-up">
+  <script src="script.js"></script>
+   <header>
+    <a href="#" class="logo">Portfolio</a>
+
+    <nav id="nav">
+     
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#image">Image Gallery</a></li>
+        <li><a href="#works">Works</a></li>
+      </ul>
+    </nav>
+    <a class="action" href="session.html">Call Me!</a>
+    
+  </header>
+
+    <section class="hero-section" id="home">
+        <div class="hero-content">
+            <h1>Welcome To My Portfolio Website</h1>
+            <h2 class="active1">Hi I'm David</h2>
+            <h3 class="text1">Capturing Moments,One At A Time</h1>
+
+        </div>
+        
+            <a class="hero-btn" href="session.html">Book A Session</a>
+        
+    </section>
+  <section class="about-section" id="about">
+  <div class="about-img">
+    <img src="images/about1.jpeg" alt="about image">
+  </div>
+
+  <div class="about-content">
+    <h3>I'm A <span>Natural Photographer</span>
+               <span>Aerial photographer</span>
+              <span>WildLife photographer</span>
+               <span>Travel photographer</span></h3>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate sequi optio distinctio rerum suscipit officiis vitae qui inventore alias. Tempore perspiciatis quisquam voluptatibus unde!</p>
+    <a class="about-btn" href="#">Know Me More At</a>
+
+    <div class="social-links">
+      <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+      <a href="#"><i class='bx bxl-github' ></i></a>
+      <a href="#"><i class='bx bxl-twitter' ></i></a>
+      <a href="#"><i class='bx bxl-linkedin' ></i></a>
+    </div>
+  </div>
+</section>
+<section class="timeline-section">
+  <h3 class="timeline-title">Major Achivements in my career</h3>
+  <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2018</div>
+      <div class="timeline-content">
+        <h3>The Beginning of the Journey</h3>
+        <ul>
+          <li>Discovered a passion for photography through nature and landscape shots.</li>
+          <li>Participated in the college-level “Photography Club” for the first time.</li>
+          <li>Bought first DSLR camera (Canon EOS 200D).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2019</div>
+      <div class="timeline-content">
+        <h3>Learning & Early Recognition</h3>
+        <ul>
+          <li>Completed a certified course in Basics of Digital Photography.</li>
+          <li>Won 1st Prize in “Nature Through My Lens” photo contest at district level</li>
+          <li>Organized first college photo exhibition showcasing 50+ photographs.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2020</div>
+      <div class="timeline-content">
+        <h3>Expanding Creativity</h3>
+        <ul>
+          <li>Started freelance work covering local events and weddings.</li>
+          <li>Got featured in a local magazine for wildlife photography</li>
+          <li>Began experimenting with aerial and drone photography.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2021</div>
+      <div class="timeline-content">
+        <h3>Professional Growth</h3>
+        <ul>
+          <li>Launched personal photography brand/portfolio website.</li>
+          <li>Collaborated with a travel agency for travel photography projects.</li>
+          <li>Won Best Photographer Award at the State Youth Cultural Festival.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2022</div>
+      <div class="timeline-content">
+        <h3>Innovation & Recognition</h3>
+        <ul>
+          <li>Conducted workshops on Portrait and Street Photography for college students.</li>
+          <li>Photos published in National Geographic Your Shot online community.</li>
+          <li>Reached 10K+ followers on Instagram photography page.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2023</div>
+      <div class="timeline-content">
+        <h3>Exhibitions & Global Exposure</h3>
+        <ul>
+          <li>Invited to International Photo Expo 2023 (Chennai).</li>
+          <li>Won 2nd Prize in “Lens Masters India” national photography contest.</li>
+          <li>Started experimenting with AI-based photo enhancement and editing tools.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline">
+    <div class="timeline-item" data-aos="flip-left">
+      <div class="timeline-year">2024</div>
+      <div class="timeline-content">
+        <h3>Mentor & Creator</h3>
+        <ul>
+          <li>Served as a guest speaker at a photography seminar for beginners.</li>
+          <li>Published first photo storybook titled Frames of Emotion.</li>
+          <li>Started offering online photography tutorials on YouTube.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="image-gallery" id="image">
+  <h2>Image gallery</h2>
+  <div class="gallery-container">
+    <div class="gallery-track">
+      <img src="images/image1.jpeg.jpg" alt="Photo 1">
+      <img src="images/image2.jpeg" alt="Photo 2">
+      <img src="images/image3.jpeg" alt="Photo 3">
+      <img src="images/image4.jpeg" alt="Photo 4">
+      <img src="images/image5.jpeg" alt="Photo 5">
+      <img src="images/image6.jpeg" alt="Photo 6">
+      <img src="images/image7.jpeg" alt="Photo 7">
+      <!--duplicate images-->
+      <img src="images/image1.jpeg.jpg" alt="Photo 1">
+      <img src="images/image2.jpeg" alt="Photo 2">
+      <img src="images/image3.jpeg" alt="Photo 3">
+      <img src="images/image4.jpeg" alt="Photo 4">
+      <img src="images/image5.jpeg" alt="Photo 5">
+      <img src="images/image6.jpeg" alt="Photo 6">
+      <img src="images/image7.jpeg" alt="Photo 7">
+      <img src="images/image1.jpeg.jpg" alt="Photo 1">
+      <img src="images/image2.jpeg" alt="Photo 2">
+      <img src="images/image3.jpeg" alt="Photo 3">
+      <img src="images/image4.jpeg" alt="Photo 4">
+      <img src="images/image5.jpeg" alt="Photo 5">
+      <img src="images/image6.jpeg" alt="Photo 6">
+      <img src="images/image7.jpeg" alt="Photo 7">
+    </div>
+  </div>
+</section>
+<h2>My Works</h2>
+
+  <!-- Category Buttons -->
+  <div class="works-nav" id="works">
+    <button class="work-btn active" data-work="travel">Travel</button>
+    <button class="work-btn" data-work="nature">Nature</button>
+    <button class="work-btn" data-work="aerial">Aerial</button>
+    <button class="work-btn" data-work="wildlife">Wildlife</button>
+  </div>
+
+  <!-- Works -->
+  <div class="works-container">
+    <!-- Travel -->
+    <div class="work-item travel active">
+      <img src="images/travel1.jpeg" alt="Travel Photo 1">
+      <div class="work-content">
+        <h3>Travel Adventure</h3>
+        <p>Exploring breathtaking landscapes and cityscapes around the world — turning travel moments into timeless stories.</p>
+      </div>
+    </div>
+    <div class="work-item travel active">
+      <img src="images/travel2.jpeg" alt="Travel Photo 2">
+      <div class="work-content">
+        <h3>Urban Travels</h3>
+        <p>Capturing vibrant street scenes and cultural experiences in cities across continents.</p>
+      </div>
+    </div>
+
+    <!-- Nature -->
+    <div class="work-item nature">
+      <img src="images/natural1.jpeg" alt="Nature Photo 1">
+      <div class="work-content">
+        <h3>Forest Serenity</h3>
+        <p>Immersing in the beauty of forests, waterfalls, and sunsets, celebrating Earth’s natural colors.</p>
+      </div>
+    </div>
+    <div class="work-item nature">
+      <img src="images/natural2.jpeg" alt="Nature Photo 2">
+      <div class="work-content">
+        <h3>Nature Closeups</h3>
+        <p>Macro photography of plants, flowers, and wildlife showcasing intricate details.</p>
+      </div>
+    </div>
+
+    <!-- Aerial -->
+    <div class="work-item aerial">
+      <img src="images/wild1.jpeg" alt="Aerial Photo 1">
+      <div class="work-content">
+        <h3>Aerial Landscapes</h3>
+        <p>Drone photography capturing top-down perspectives and wide landscapes revealing geometric beauty.</p>
+      </div>
+    </div>
+    <div class="work-item aerial">
+      <img src="images/wild2.jpeg" alt="Aerial Photo 2">
+      <div class="work-content">
+        <h3>Sky Views</h3>
+        <p>Exploring cities and nature from above with drones to create stunning visual narratives.</p>
+      </div>
+    </div>
+
+    <!-- Wildlife -->
+    <div class="work-item wildlife">
+      <img src="images/image5.jpeg" alt="Wildlife Photo 1">
+      <div class="work-content">
+        <h3>Wildlife Safari</h3>
+        <p>Capturing raw emotions and beauty of animals in their natural habitats with patience and precision.</p>
+      </div>
+    </div>
+    <div class="work-item wildlife">
+      <img src="images/aerial2.jpeg" alt="Wildlife Photo 2">
+      <div class="work-content">
+        <h3>Jungle Explorations</h3>
+        <p>Documenting animals in forests and grasslands, preserving the beauty of untamed nature.</p>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER SECTION -->
+<footer class="footer">
+  
+  <div class="footer-container">
+    <div class="footer-about">
+      <h2>David Photography</h2>
+      <p>"Every picture tells a story — let me capture yours."</p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#image">Gallery</a></li>
+        <li><a href="#works">Works</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h3>Follow Me</h3>
+      <div class="social-icons">
+        <a href="#"><i class='bx bxl-facebook'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-linkedin'></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> David Photography | All Rights Reserved</p>
+  </div>
+</footer>
+
+  <script>
+  const workButtons = document.querySelectorAll('.work-btn');
+    const workItems = document.querySelectorAll('.work-item');
+
+    workButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from buttons
+        workButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.getAttribute('data-work');
+
+        // Show/hide works
+        workItems.forEach(item => {
+          if(category === 'all' || item.classList.contains(category)) {
+            item.classList.add('active');
+          } else {
+            item.classList.remove('active');
+          }
+        });
+      });
+    });
+    </script>
+    </body>
+    </html>
