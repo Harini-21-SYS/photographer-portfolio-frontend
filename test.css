@@ -254,36 +254,13 @@ header {
 }
 
 .about-content p {
-  font-size: 1rem;
+  font-size: 1.7rem;
   line-height: 1.75;
   color: #ccc;
   margin-bottom: 30px;
 }
 
-.about-section .about-btn {
-  display: inline-block;
-  color: var(--white);
-  background-color: var(--active-dark);
-  border-radius: 50px;
-  padding: 14px 36px;
-  font-size: 15px;
-  transition: all 0.4s ease;
-  position: relative;
-  z-index: 0;
-}
-.about-section .about-btn::before {
-  content: "";
-  position: absolute;
-  top: -5px; left: -5px; right: -5px; bottom: -5px;
-  background: var(--active);
-  border-radius: 50px;
-  filter: blur(15px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-.about-section .about-btn:hover::before { opacity: 1; }
-.about-section .about-btn:hover { color: var(--active); background-color: var(--white); }
+
 
 .about-content .social-links {
   margin-top: 28px;
