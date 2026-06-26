@@ -147,19 +147,6 @@ header {
   display: inline-block;
   font-size: 16px;
 }
-.hero-section .hero-btn::before {
-  content: "";
-  position: absolute;
-  top: -5px; left: -5px; right: -5px; bottom: -5px;
-  background: var(--white);
-  border-radius: 50px;
-  filter: blur(15px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-.hero-section .hero-btn:hover::before { opacity: 1; }
-.hero-section .hero-btn:hover { color: var(--active); background-color: var(--white); }
 
 /* ===================== ABOUT ===================== */
 .about-section {
