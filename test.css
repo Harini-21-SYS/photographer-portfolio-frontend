@@ -68,7 +68,7 @@ header {
 .nav-links li a.active { color: var(--active-dark); }
 
 /* Desktop "Call Me!" button */
-.desktop-action {
+.action{
   padding: 10px 25px;
   transition: all 0.3s ease;
   border-radius: 50px;
@@ -76,7 +76,7 @@ header {
   flex-shrink: 0;
   border: 2px solid transparent;
 }
-.desktop-action:hover {
+.action:hover {
   background-color: var(--active-dark);
   color: #111;
   border-radius: 50px;
