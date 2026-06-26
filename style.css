@@ -161,6 +161,7 @@ header {
 .hero-section .hero-btn:hover::before { opacity: 1; }
 .hero-section .hero-btn:hover { color: var(--active); background-color: var(--white); }
 
+
 /* ===================== ABOUT ===================== */
 .about-section {
   margin-top: 160px;
