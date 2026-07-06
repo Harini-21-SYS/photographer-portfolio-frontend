@@ -9,11 +9,27 @@ const bookBtn=document.getElementById("bookBtn");
 const callBtn=document.getElementById("callBtn");
 bookBtn.addEventListener("click" , function(event){
     event.preventDefault();
-    console.log("Book A Session button is clicked");
+    localStorage.getItem("userEmail");
+       if (user) {
+        window.location.href = "session.html";
+    } else {
+        window.location.href = "login.html";
+    }
+
+    
 });
 callBtn.addEventListener("click" , function(event){
     event.preventDefault();
-    console.log("Call Me button is clicked");
+    
+    const user = localStorage.getItem("userEmail");
+
+    if (user) {
+        window.location.href = "session.html";
+    } else {
+        window.location.href = "login.html";
+    }
+
 });
+
 
 
