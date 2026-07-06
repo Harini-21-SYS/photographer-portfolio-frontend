@@ -1,8 +1,8 @@
 alert("Script Loaded");
-// AOS.init({
-//     duration:1000,
-//     once:false,
-// });
+AOS.init({
+    duration:1000,
+    once:false,
+});
 // Auto update copyright year
 // document.getElementById("year").textContent = new Date().getFullYear();
 const bookBtn=document.getElementById("bookBtn");
