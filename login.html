@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P o r t f o l i o | Login</title>
+<link type="img/jpeg" href="images/cam.jpeg" rel="icon">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<style>
+  :root{
+    --active:      rgb(247, 167, 19);   /* same accent role as the portfolio's var(--active) */
+    --bg: #0b0b1a;
+    --panel:#1b1b2f;
+    --panel-soft:#232323;
+    --text:#eee;
+    --muted:#9a9a9a;
+    --error:#ff6b6b;
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background: var(--bg);
+    color:var(--text);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 16px;
+  }
+
+  header.mini{
+    position:fixed;
+    top:0; left:0; right:0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 30px;
+  }
+  header.mini .logo{
+    
+  cursor: pointer;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--active);
+  font-weight: 700;
+  flex-shrink: 0;
+  text-decoration:none;
+
+
+  }
+  header.mini a.back{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:24px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:color .25s ease;
+  }
+  header.mini a.back:hover{ color:var(--active); }
+
+  .auth-wrap{
+    width:100%;
+    max-width:420px;
+  }
+
+  .auth-card{
+    background:var(--panel);
+    border:1px solid #2a2a2a;
+    border-radius:18px;
+    padding:36px 32px 30px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.45);
+  }
+
+  .auth-head{
+    text-align:center;
+    margin-bottom:26px;
+  }
+  .auth-head .icon-badge{
+    width:52px; height:52px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background:var(--panel-soft);
+    border:1px solid rgba(232,172,61,0.35);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--active);
+    font-size:1.5rem;
+  }
+  .auth-head h1{
+    font-size:1.4rem;
+    margin:0 0 6px;
+    letter-spacing:0.5px;
+  }
+  .auth-head p{
+    margin:0;
+    color:var(--muted);
+    font-size:0.88rem;
+  }
+
+  /* Toggle */
+  .auth-toggle{
+    display:flex;
+    background:var(--panel-soft);
+    border-radius:30px;
+    padding:4px;
+    margin-bottom:28px;
+    position:relative;
+  }
+  .auth-toggle button{
+    flex:1;
+    border:none;
+    background:transparent;
+    color:var(--muted);
+    padding:10px 0;
+    font-size:0.92rem;
+    font-weight:600;
+    border-radius:26px;
+    cursor:pointer;
+    z-index:1;
+    transition:color .3s ease;
+  }
+  .auth-toggle button.active{ color:#111; }
+  .auth-toggle .slider{
+    position:absolute;
+    top:4px; left:4px;
+    width:calc(50% - 4px);
+    height:calc(100% - 8px);
+    background:var(--active);
+    border-radius:26px;
+    transition:transform .35s cubic-bezier(.65,0,.35,1);
+  }
+  .auth-toggle.register .slider{ transform:translateX(100%); }
+
+  /* Fields */
+  form{ display:flex; flex-direction:column; gap:16px; }
+
+  .field{
+    position:relative;
+  }
+  .field input{
+    width:100%;
+    padding:13px 14px 13px 42px;
+    background:#141414;
+    border:1px solid #2c2c2c;
+    border-radius:10px;
+    color:var(--text);
+    font-size:0.95rem;
+    outline:none;
+    transition:border-color .25s ease, background .25s ease;
+  }
+  .field input::placeholder{ color:#6c6c6c; }
+  .field input:focus{
+    border-color:var(--active);
+    background:#171717;
+  }
+  .field i{
+    position:absolute;
+    left:14px; top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
+    font-size:1.1rem;
+    pointer-events:none;
+    transition:color .25s ease;
+  }
+  .field input:focus + i{ color:var(--active); }
+
+  .field.hidden-field{
+    display:none;
+  }
+
+  .field small.err{
+    display:none;
+    color:var(--error);
+    font-size:0.76rem;
+    margin-top:4px;
+    padding-left:2px;
+  }
+  .field.invalid input{ border-color:var(--error); }
+  .field.invalid small.err{ display:block; }
+
+  .row-extra{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:0.82rem;
+    color:var(--muted);
+    margin-top:-4px;
+  }
+  .row-extra a{ color:var(--active); text-decoration:none; }
+  .row-extra a:hover{ text-decoration:underline; }
+
+  .remember{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .remember input{ accent-color:var(--active); }
+
+  button.submit-btn{
+    margin-top:6px;
+    padding:13px 0;
+    border:none;
+    border-radius:10px;
+    background:var(--active);
+    color:#111;
+    font-weight:700;
+    font-size:0.98rem;
+    letter-spacing:0.3px;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease, background .25s ease;
+  }
+  button.submit-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(232,172,61,0.25);
+  }
+  button.submit-btn:active{ transform:translateY(0); }
+
+  .divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#5f5f5f;
+    font-size:0.78rem;
+    margin:22px 0 16px;
+  }
+  .divider::before, .divider::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:#2a2a2a;
+  }
+
+  .switch-line{
+    text-align:center;
+    font-size:0.88rem;
+    color:var(--muted);
+  }
+  .switch-line span{
+    color:var(--active);
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  .status-msg{
+    text-align:center;
+    font-size:0.85rem;
+    padding:10px 12px;
+    border-radius:8px;
+    margin-bottom:16px;
+    display:none;
+  }
+  .status-msg.show{ display:block; }
+  .status-msg.success{ background:rgba(90,200,110,0.12); color:#7fdc93; border:1px solid rgba(90,200,110,0.3); }
+
+  @media (max-width:480px){
+    .auth-card{ padding:28px 20px 24px; border-radius:14px; }
+    header.mini{ padding:14px 18px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="mini">
+    <a href="index.html" class="logo">P O R T F O L I O</a>
+    <a href="index.html" class="back"><i class='bx bx-arrow-back'></i> Back to site</a>
+  </header>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+
+      <div class="auth-head">
+        <div class="icon-badge"><i class='bx bxs-camera'></i></div>
+        <h1 id="formTitle">Welcome Back</h1>
+        <p id="formSubtitle">Log in to manage your photography sessions</p>
+      </div>
+
+      <div class="auth-toggle" id="authToggle">
+        <span class="slider"></span>
+        <button type="button" class="active" data-mode="login">Login</button>
+        <button type="button" data-mode="register">Register</button>
+      </div>
+
+      <div class="status-msg success" id="statusMsg"></div>
+
+      <form id="authForm" novalidate>
+
+        <div class="field hidden-field" id="field-name">
+          <input type="text" id="name" placeholder="Full name" autocomplete="name">
+          <i class='bx bx-user'></i>
+          <small class="err">Please enter your name.</small>
+        </div>
+
+        <div class="field" id="field-email">
+          <input type="email" id="email" placeholder="Email address" autocomplete="email">
+          <i class='bx bx-envelope'></i>
+          <small class="err">Please enter a valid email.</small>
+        </div>
+
+        <div class="field hidden-field" id="field-phone">
+          <input type="tel" id="phone" placeholder="Phone number" autocomplete="tel">
+          <i class='bx bx-phone'></i>
+          <small class="err">Please enter a valid phone number.</small>
+        </div>
+
+        <div class="field" id="field-password">
+          <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+          <i class='bx bx-lock-alt'></i>
+          <small class="err">Password must be at least 6 characters.</small>
+        </div>
+
+        
+        <button type="submit" class="submit-btn" id="submitBtn">Log In</button>
+      </form>
+
+      <div class="divider">or</div>
+
+      <p class="switch-line" id="switchLine">
+        Don't have an account? <span id="switchLink">Register now</span>
+      </p>
+
+    </div>
+  </div>
+
+<script>
+  const toggle      = document.getElementById('authToggle');
+  const toggleBtns  = toggle.querySelectorAll('button');
+  const nameField   = document.getElementById('field-name');
+  const phoneField  = document.getElementById('field-phone');
+  const loginExtra  = document.getElementById('loginExtra');
+  const formTitle   = document.getElementById('formTitle');
+  const formSub     = document.getElementById('formSubtitle');
+  const submitBtn   = document.getElementById('submitBtn');
+  const switchLine  = document.getElementById('switchLine');
+  const switchLink  = document.getElementById('switchLink');
+  const form        = document.getElementById('authForm');
+  const statusMsg   = document.getElementById('statusMsg');
+
+  function setMode(mode){
+    toggleBtns.forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+    toggle.classList.toggle('register', mode === 'register');
+    statusMsg.classList.remove('show');
+
+    document.querySelectorAll('.field').forEach(f => f.classList.remove('invalid'));
+
+    if(mode === 'register'){
+      nameField.classList.remove('hidden-field');
+      phoneField.classList.remove('hidden-field');
+      loginExtra.style.display = 'none';
+      formTitle.textContent = 'Create Account';
+      formSub.textContent = 'Register to book and track your photography sessions';
+      submitBtn.textContent = 'Register';
+      switchLine.innerHTML = 'Already have an account? <span id="switchLink">Log in</span>';
+    } else {
+      nameField.classList.add('hidden-field');
+      phoneField.classList.add('hidden-field');
+      loginExtra.style.display = 'flex';
+      formTitle.textContent = 'Welcome Back';
+      formSub.textContent = 'Log in to manage your photography sessions';
+      submitBtn.textContent = 'Log In';
+      switchLine.innerHTML = "Don't have an account? <span id=\"switchLink\">Register now</span>";
+    }
+    bindSwitchLink();
+    form.reset();
+  }
+
+  function bindSwitchLink(){
+    const link = document.getElementById('switchLink');
+    link.addEventListener('click', () => {
+      const current = toggle.querySelector('button.active').dataset.mode;
+      setMode(current === 'login' ? 'register' : 'login');
+    });
+  }
+  bindSwitchLink();
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => setMode(btn.dataset.mode));
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const mode = toggle.querySelector('button.active').dataset.mode;
+    let valid = true;
+
+    function check(id, condition){
+      const field = document.getElementById('field-' + id);
+      if(field.classList.contains('hidden-field')) return;
+      if(!condition){
+        field.classList.add('invalid');
+        valid = false;
+      } else {
+        field.classList.remove('invalid');
+      }
+    }
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('password').value;
+
+    if(mode === 'register') check('name', name.length > 1);
+    check('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    if(mode === 'register') check('phone', /^[0-9+\-\s]{7,15}$/.test(phone));
+    check('password', password.length >= 6);
+
+    if(!valid) return;
+
+    statusMsg.textContent = mode === 'register'
+      ? 'Account created! You can now log in.'
+      : 'Logged in successfully.';
+    statusMsg.classList.add('show');
+
+    if(mode === 'register'){
+      setTimeout(() => setMode('login'), 1200);
+    }
+  });
+</script>
+
+</body>
+</html>
