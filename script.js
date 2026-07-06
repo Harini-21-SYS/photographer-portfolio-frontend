@@ -4,7 +4,7 @@ AOS.init({
     once:false,
 });
 // Auto update copyright year
-document.getElementById("year").textContent = new Date().getFullYear();
+// document.getElementById("year").textContent = new Date().getFullYear();
 const bookBtn=document.getElementById("bookBtn");
 const callBtn=document.getElementById("callBtn");
 bookBtn.addEventListener("click" , function(event){
