@@ -9,9 +9,9 @@
 
 <style>
   :root{
-    --active:      rgb(247, 167, 19);   /* same accent role as the portfolio's var(--active) */
-    --bg: #0b0b1a;
-    --panel:#1b1b2f;
+    --active:#e8ac3d;      /* same accent role as the portfolio's var(--active) */
+    --bg:#0e0e0e;
+    --panel:#1c1c1c;
     --panel-soft:#232323;
     --text:#eee;
     --muted:#9a9a9a;
@@ -23,7 +23,9 @@
   body{
     margin:0;
     min-height:100vh;
-    background: var(--bg);
+    background:
+      radial-gradient(1100px 500px at 15% -10%, rgba(232,172,61,0.10), transparent 60%),
+      var(--bg);
     color:var(--text);
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     display:flex;
@@ -41,22 +43,15 @@
     padding:18px 30px;
   }
   header.mini .logo{
-    
-  cursor: pointer;
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--active);
-  font-weight: 700;
-  flex-shrink: 0;
-  text-decoration:none;
-
-
+    color:var(--text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:1px;
   }
   header.mini a.back{
     color:var(--muted);
     text-decoration:none;
-    font-size:24px;
+    font-size:0.9rem;
     display:flex;
     align-items:center;
     gap:6px;
@@ -266,7 +261,7 @@
 <body>
 
   <header class="mini">
-    <a href="index.html" class="logo">P O R T F O L I O</a>
+    <a href="index.html" class="logo">Portfolio</a>
     <a href="index.html" class="back"><i class='bx bx-arrow-back'></i> Back to site</a>
   </header>
 
@@ -313,7 +308,11 @@
           <small class="err">Password must be at least 6 characters.</small>
         </div>
 
-        
+        <div class="row-extra" id="loginExtra">
+          <label class="remember"><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+
         <button type="submit" class="submit-btn" id="submitBtn">Log In</button>
       </form>
 
@@ -381,10 +380,125 @@
     btn.addEventListener('click', () => setMode(btn.dataset.mode));
   });
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
+
     e.preventDefault();
+
     const mode = toggle.querySelector('button.active').dataset.mode;
     let valid = true;
+
+    function check(id, condition){
+        const field = document.getElementById('field-' + id);
+
+        if(field.classList.contains('hidden-field')) return;
+
+        if(!condition){
+            field.classList.add('invalid');
+            valid = false;
+        }else{
+            field.classList.remove('invalid');
+        }
+    }
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const password = document.getElementById("password").value;
+
+    if(mode === "register")
+        check("name", name.length > 1);
+
+    check("email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+
+    if(mode === "register")
+        check("phone", /^[0-9+\-\s]{7,15}$/.test(phone));
+
+    check("password", password.length >= 6);
+
+    if(!valid) return;
+
+    try{
+
+        if(mode === "register"){
+
+            const response = await fetch("http://localhost:8080/users/register",{
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    name:name,
+                    email:email,
+                    phone:phone,
+                    password:password
+
+                })
+
+            });
+
+            const message = await response.text();
+
+            alert(message);
+
+            if(response.ok){
+
+                setMode("login");
+
+            }
+
+        }
+        else{
+
+            const response = await fetch("http://localhost:8080/users/login",{
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify({
+
+                    email:email,
+                    password:password
+
+                })
+
+            });
+
+            const message = await response.text();
+
+            if(response.ok){
+
+                alert(message);
+
+                localStorage.setItem("userEmail",email);
+
+                window.location.href="index.html";
+
+            }
+            else{
+
+                alert(message);
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        alert("Cannot connect to Spring Boot Server");
+
+        console.error(error);
+
+    }
+
+});
 
     function check(id, condition){
       const field = document.getElementById('field-' + id);
