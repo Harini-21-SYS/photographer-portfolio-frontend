@@ -1,4 +1,4 @@
-console.log("Script Loaded");
+alert("Script Loaded");
 AOS.init({
     duration:1000,
     once:false,
