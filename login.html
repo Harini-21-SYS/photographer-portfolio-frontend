@@ -486,7 +486,7 @@
             //     alert(message);
 
             // }
-            const user=response.json();
+            const user= await response.json();
             localStorage.setItem("userId",user.Id);
             localStorage.setItem("userName",user.name);
             localStorage.setItem("userEmail",user.email);
