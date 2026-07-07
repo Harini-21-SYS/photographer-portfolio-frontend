@@ -16,6 +16,37 @@ if (userName) {
 
     document.getElementById("profileEmail").textContent = userEmail;
 }
+const profileBtn = document.getElementById("profileBtn");
+const profileDropdown = document.getElementById("profileDropdown");
+
+profileBtn.addEventListener("click", function(){
+
+    if(profileDropdown.style.display === "block"){
+
+        profileDropdown.style.display = "none";
+
+    }
+    else{
+
+        profileDropdown.style.display = "block";
+
+    }
+
+});
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", function(){
+
+    localStorage.removeItem("userId");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userPhone");
+
+    alert("Logged out successfully");
+
+    window.location.href = "index.html";
+
+});
 // Auto update copyright year
 // document.getElementById("year").textContent = new Date().getFullYear();
 const bookBtn=document.getElementById("bookBtn");
