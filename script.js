@@ -9,24 +9,27 @@ const bookBtn=document.getElementById("bookBtn");
 const callBtn=document.getElementById("callBtn");
 bookBtn.addEventListener("click" , function(event){
     event.preventDefault();
-    localStorage.getItem("userEmail");
-      
-      
-        window.location.href = "login.html";
-    
+    const user=localStorage.getItem("userEmail");
+    if(user){
+        window.location.href="session.html";
+    }
+    else{
+         window.location.href = "login.html";
 
+    }
     
 });
 callBtn.addEventListener("click" , function(event){
     event.preventDefault();
     
     const user = localStorage.getItem("userEmail");
+     if(user){
+        window.location.href="session.html";
+    }
+    else{
+         window.location.href = "login.html";
 
-
-       
- 
-        window.location.href = "login.html";
-    
+    }
 
 });
 
