@@ -470,22 +470,7 @@
 
             });
 
-            // const message = await response.text();
-
-            // if(response.ok){
-
-            //     alert(message);
-
-            //     localStorage.setItem("userEmail",email);
-
-            //     window.location.href="index.html";
-
-            // }
-            // else{
-
-            //     alert(message);
-
-            // }
+          if(response.ok){
             const user= await response.json();
             localStorage.setItem("userId",user.Id);
             localStorage.setItem("userName",user.name);
@@ -495,8 +480,14 @@
             window.location.href="session.html";
 
         }
-
+      else{
+        const error=await response.text();
+        alert(error);
+      }
     }
+  }
+
+    
     catch(error){
 
         alert("Cannot connect to Spring Boot Server");
@@ -504,8 +495,9 @@
         console.error(error);
 
     }
+  }
 
-});
+);
 
 
 </script>
