@@ -48,22 +48,18 @@ async function loadBookings() {
                     <td>${booking.message}</td>
                     <td>${booking.status}</td>
 
-                    <td>
+                   <td>
 
-                        <button onclick="updateStatus(${booking.id},'CONFIRMED')">
+               <button onclick="updateStatus(${booking.id},'confirm')">
+                             Confirm
+                </button>
 
-                            Confirm
+                <button onclick="updateStatus(${booking.id},'reject')">
+                             Reject
+                </button>
 
-                        </button>
-
-                        <button onclick="updateStatus(${booking.id},'CANCELLED')">
-
-                            Cancel
-
-                        </button>
-
-                    </td>
-
+                  
+                </td>
                 </tr>
 
             `;
@@ -72,7 +68,7 @@ async function loadBookings() {
 
     }
 
-    catch(error){
+    catch (error) {
 
         console.error(error);
 
@@ -82,33 +78,30 @@ async function loadBookings() {
 
 }
 
-async function updateStatus(id,status){
+async function updateStatus(id, action) {
 
-    try{
+    try {
 
-        const response = await fetch(`http://localhost:8080/bookings/${id}/status?status=${status}`,{
+        const response = await fetch(
+            `http://localhost:8080/bookings/${id}/${action}`,
+            {
+                method: "PUT"
+            }
+        );
 
-            method:"PUT"
-
-        });
-
-        if(response.ok){
+        if (response.ok) {
 
             alert("Booking updated successfully.");
 
             loadBookings();
 
-        }
-
-        else{
+        } else {
 
             alert("Failed to update booking.");
 
         }
 
-    }
-
-    catch(error){
+    } catch (error) {
 
         console.error(error);
 
