@@ -356,22 +356,28 @@
     </form>
   </section>
 
-  <!-- Toast notification -->
-  <div class="toast" id="toast">
-    Thank you for booking! I'll get back to you soon 😊
-  </div>
-
   <script>
     document.getElementById('name').value=localStorage.getItem("userName");
     document.getElementById("email").value=localStorage.getItem("userEmail");
     document.getElementById("phone").value=localStorage.getItem("userPhone");
     function submitForm(e) {
       e.preventDefault();
-      const toast = document.getElementById('toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 4000);
-      e.target.reset();
-      return false;
+      const customerName=document.getElementById("name").value;
+      const email=document.getElementById("email").value;
+      const phone=document.getElementById("phone").value;
+      const eventType=document.getElementById("session").value;
+      const eventDate=document.getElementById("date").value;
+      const eventLocation=document.getElementById("location").value;
+      const message=document.getElementById("message").value;
+     
+    console.log(customerName);
+    console.log(email);
+    console.log(phone);
+    console.log(eventType);
+    console.log(eventDate);
+    console.log(eventLocation);
+    console.log(message);
+      
     }
   </script>
 </body>
