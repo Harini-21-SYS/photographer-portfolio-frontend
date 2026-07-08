@@ -352,6 +352,9 @@
       <div class="btn-wrap">
         <button type="submit" class="book-btn">Submit Booking</button>
       </div>
+      <div id="toast" class="toast">
+         Booking submitted successfully!
+     </div>
 
     </form>
   </section>
@@ -360,25 +363,100 @@
     document.getElementById('name').value=localStorage.getItem("userName");
     document.getElementById("email").value=localStorage.getItem("userEmail");
     document.getElementById("phone").value=localStorage.getItem("userPhone");
-    function submitForm(e) {
-      e.preventDefault();
-      const customerName=document.getElementById("name").value;
-      const email=document.getElementById("email").value;
-      const phone=document.getElementById("phone").value;
-      const eventType=document.getElementById("session").value;
-      const eventDate=document.getElementById("date").value;
-      const eventLocation=document.getElementById("location").value;
-      const message=document.getElementById("message").value;
-     
-    console.log(customerName);
-    console.log(email);
-    console.log(phone);
-    console.log(eventType);
-    console.log(eventDate);
-    console.log(eventLocation);
-    console.log(message);
-      
+    async function submitForm(e) {
+
+    // Prevent the page from refreshing after form submission
+    e.preventDefault();
+
+    // Read values from the form
+    const customerName = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("phone").value;
+    const eventType = document.getElementById("session").value;
+    const eventDate = document.getElementById("date").value;
+    const eventLocation = document.getElementById("location").value;
+    const message = document.getElementById("message").value;
+
+    try {
+
+        // Send booking data to Spring Boot
+        const response = await fetch("http://localhost:8080/bookings", {
+
+            // POST because we are creating a new booking
+            method: "POST",
+
+            // Tell Spring Boot that we are sending JSON data
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            // Convert JavaScript object into JSON
+            body: JSON.stringify({
+
+                customerName: customerName,
+                email: email,
+                phone: phone,
+                eventType: eventType,
+                eventDate: eventDate,
+                eventLocation: eventLocation,
+                message: message
+
+            })
+
+        });
+
+        // Check whether the request was successful
+        if (response.ok) {
+
+            // Convert JSON response into JavaScript object
+            const booking = await response.json();
+
+            console.log(booking);
+
+            // Get the toast element
+            const toast = document.getElementById("toast");
+
+            // Display success message
+            toast.innerHTML = "Booking submitted successfully!";
+
+            // Show the toast
+            toast.classList.add("show");
+
+            // Hide the toast after 4 seconds
+            setTimeout(() => {
+
+                toast.classList.remove("show");
+
+            }, 4000);
+
+            // Optional: Clear only the fields entered by the user
+            document.getElementById("session").value = "";
+            document.getElementById("date").value = "";
+            document.getElementById("location").value = "";
+            document.getElementById("message").value = "";
+
+        } else {
+
+            // Spring Boot returned an error (400, 404, 500, etc.)
+            alert("Booking failed.");
+
+        }
+
+    } catch (error) {
+
+        // This block executes if the request itself fails
+        // Example: Spring Boot server is not running
+
+        console.error(error);
+
+        alert("Cannot connect to Spring Boot Server");
+
     }
+
+}
+    
+      
+  
   </script>
 </body>
 </html>
