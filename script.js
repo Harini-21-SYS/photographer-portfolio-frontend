@@ -18,20 +18,11 @@ if (userName) {
 }
 
 const profileBtn = document.getElementById("profileBtn");
-const profileDropdown = document.getElementById("profileDropdown");
+const dropdownMenu = document.getElementById("dropdownMenu");
 
-profileBtn.addEventListener("click", function(){
+profileBtn.addEventListener("click", function () {
 
-    if(profileDropdown.style.display === "block"){
-
-        profileDropdown.style.display = "none";
-
-    }
-    else{
-
-        profileDropdown.style.display = "block";
-
-    }
+    dropdownMenu.classList.toggle("show");
 
 });
 const logoutBtn = document.getElementById("logoutBtn");
