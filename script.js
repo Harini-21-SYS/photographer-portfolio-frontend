@@ -16,26 +16,7 @@ if (userName) {
 
     document.getElementById("profileEmail").textContent = userEmail;
 }
-const profileBtn = document.getElementById("profileBtn");
-const dropdownMenu = document.getElementById("dropdownMenu");
 
-profileBtn.addEventListener("click", () => {
-
-    dropdownMenu.classList.toggle("show");
-
-});
-window.addEventListener("click", function(event){
-
-    if(
-        !profileBtn.contains(event.target) &&
-        !dropdownMenu.contains(event.target)
-    ){
-
-        dropdownMenu.classList.remove("show");
-
-    }
-
-});
 const profileBtn = document.getElementById("profileBtn");
 const profileDropdown = document.getElementById("profileDropdown");
 
