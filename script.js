@@ -10,7 +10,7 @@ if (userName) {
 
     document.getElementById("profileContainer").style.display = "block";
 
-    // document.getElementById("userName").textContent = userName;
+    document.getElementById("userName").textContent = userName;
 
     // document.getElementById("profileName").textContent = userName;
 
