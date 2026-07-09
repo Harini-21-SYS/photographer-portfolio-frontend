@@ -20,9 +20,20 @@ if (userName) {
 const profileBtn = document.getElementById("profileBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
-profileBtn.addEventListener("click", function () {
+console.log(profileBtn);
+console.log(dropdownMenu);
+
+profileBtn.addEventListener("click", function (e) {
+
+    e.stopPropagation();
 
     dropdownMenu.classList.toggle("show");
+
+});
+
+window.addEventListener("click", function () {
+
+    dropdownMenu.classList.remove("show");
 
 });
 const logoutBtn = document.getElementById("logoutBtn");
