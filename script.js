@@ -10,11 +10,11 @@ if (userName) {
 
     document.getElementById("profileContainer").style.display = "block";
 
-    document.getElementById("userName").textContent = userName;
+    // document.getElementById("userName").textContent = userName;
 
-    document.getElementById("profileName").textContent = userName;
+    // document.getElementById("profileName").textContent = userName;
 
-    document.getElementById("profileEmail").textContent = userEmail;
+    // document.getElementById("profileEmail").textContent = userEmail;
 }
 
 const profileBtn = document.getElementById("profileBtn");
