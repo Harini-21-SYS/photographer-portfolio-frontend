@@ -4,35 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Bookings</title>
+
     <link rel="stylesheet" href="my-bookings.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <h1>My Bookings</h1>
+<div class="container">
 
-    <table>
+    <div class="header">
 
-        <thead>
+        <h1>📷 My Bookings</h1>
 
-            <tr>
+        <a href="index.html" class="back-btn">
+            ← Back to Home
+        </a>
 
-                <th>ID</th>
-                <th>Session</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Status</th>
+    </div>
 
-            </tr>
+    <div class="table-container">
 
-        </thead>
+        <table>
 
-        <tbody id="bookingTableBody">
+            <thead>
 
-        </tbody>
+                <tr>
 
-    </table>
+                    <th>ID</th>
+                    <th>Session</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                    <th>Status</th>
 
-    <script src="my-bookings.js"></script>
+                </tr>
+
+            </thead>
+
+            <tbody id="bookingTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="my-bookings.js"></script>
 
 </body>
 </html>

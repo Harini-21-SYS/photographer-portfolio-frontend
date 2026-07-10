@@ -48,7 +48,15 @@ async function loadBookings() {
                     <td>${booking.eventType}</td>
                     <td>${booking.eventDate}</td>
                     <td>${booking.eventLocation}</td>
-                    <td>${booking.status}</td>
+                    <td>
+
+<span class="status ${booking.status.toLowerCase()}">
+
+${booking.status}
+
+</span>
+
+</td>
 
                 </tr>
 
