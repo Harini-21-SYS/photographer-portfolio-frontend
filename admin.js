@@ -46,17 +46,31 @@ async function loadBookings() {
                     <td>${booking.eventDate}</td>
                     <td>${booking.eventLocation}</td>
                     <td>${booking.message}</td>
-                    <td>${booking.status}</td>
+                   <td>
+
+<span class="status ${booking.status.toLowerCase()}">
+
+${booking.status}
+
+</span>
+
+</td>
 
                    <td>
 
-               <button onclick="updateStatus(${booking.id},'confirm')">
-                             Confirm
-                </button>
+             <button class="confirm-btn"
+onclick="updateStatus(${booking.id},'confirm')">
 
-                <button onclick="updateStatus(${booking.id},'reject')">
-                             Reject
-                </button>
+✔ Confirm
+
+</button>
+
+<button class="reject-btn"
+onclick="updateStatus(${booking.id},'reject')">
+
+✖ Reject
+
+</button>
 
                   
                 </td>
