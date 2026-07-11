@@ -362,6 +362,92 @@ header {
 }
 
 /* ===================== WORKS ===================== */
+h2 {
+      text-align: center;
+      color: var(--active);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      padding-top: 55px;
+    }
+
+    /* Category Buttons */
+    .works-nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .work-btn {
+      background: none;
+      color: white;
+      border: 2px solid var(--active);
+      padding: 8px 18px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .work-btn:hover,
+    .work-btn.active {
+      background-color: var(--active);
+      color: #111;
+    }
+
+    /* Works Container */
+    .works-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 20px 60px 20px;
+    }
+
+    .work-item {
+      background: #1c1c1c;
+      border-radius: 15px;
+      overflow: hidden;
+      width: 300px;
+      display: none;
+      flex-direction: column;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .work-item.active {
+      display: flex;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .work-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item img:hover {
+      transform: scale(1.05);
+    }
+
+    .work-content {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .work-content h3 {
+      color: var(--active);
+      margin: 0 0 10px 0;
+    }
+
+    .work-content p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #ddd;
+    }
+  
+
 .works-heading {
   text-align: center;
   color: var(--active);
