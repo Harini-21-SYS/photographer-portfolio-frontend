@@ -1,28 +1,137 @@
-# Photographer Portfolio Website
+# 📸 Photographer Portfolio Website
 
-## 📸 Project Overview
-This is a responsive portfolio website designed for a professional photographer.  
-It showcases photography samples, about section, and contact form.
+A full-stack Photographer Portfolio web application built using HTML, CSS, JavaScript, Spring Boot, and MySQL. The website allows customers to explore the photographer's work, book photography sessions, and receive booking updates via email. An admin dashboard is provided to manage bookings efficiently.
 
-## 🖥️ Technologies Used
+---
+
+## ✨ Features
+
+### Customer
+- View photographer portfolio
+- Register and Login
+- Book photography sessions
+- View booking history
+- Receive email notification when booking is confirmed or rejected
+- Responsive design for desktop and mobile
+
+### Admin
+- Secure Admin Login
+- View all customer bookings
+- Confirm bookings
+- Reject bookings
+- Automatic email notifications to customers
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend
 - HTML5
-- CSS3 (with Media Queries for responsiveness)
-- No frameworks used
-- Designed using Figma / Canva
+- CSS3
+- JavaScript
+- AOS Animation Library
 
-## 💻 Code Editor
-Visual Studio Code
+### Backend
+- Java
+- Spring Boot
+- Spring Data JPA
+- Spring Mail
 
-## 🌐 Browsers Tested
-Google Chrome, Microsoft Edge, Firefox
+### Database
+- MySQL
 
-## 🚀 Deployment (Optional)
-Can be deployed on GitHub Pages or Netlify.
+### Tools
+- Eclipse IDE
+- MySQL Workbench
+- Postman
+- Git & GitHub
 
-## 👩‍💻 Developer
-Developed by Harini B. R.
-# Photographer Portfolio — Harini B. R.
-Open index.html in any browser. Tested on Chrome/Edge/Firefox.
-Files: html, css, js, images, documentation.pdf (detailed doc)
-Contact: hariniragunathan06@gmail.com
+---
+
+## 📂 Project Structure
+
+```
+PhotographerPortfolio
+│
+├── css/
+├── js/
+├── images/
+├── videos/
+│
+├── index.html
+├── login.html
+├── register.html
+├── session.html
+├── my-bookings.html
+├── admin.html
+│
+└── Spring Boot Backend
+    ├── controller
+    ├── service
+    ├── repository
+    ├── model
+    └── config
+```
+
+---
+
+## 📋 Modules
+
+### Authentication
+- User Registration
+- User Login
+- Admin Login
+
+### Booking Module
+- Book Photography Session
+- Store booking details
+- Booking status management
+
+### Customer Module
+- View My Bookings
+- Receive booking status updates
+
+### Admin Module
+- View all bookings
+- Confirm bookings
+- Reject bookings
+
+### Email Module
+- Booking confirmation email
+- Booking rejection email
+
+---
+
+## 🚀 Future Enhancements
+
+- Online Payment Integration
+- Gallery Management
+- Booking Search & Filter
+- Booking Analytics Dashboard
+- Customer Reviews
+- Image Upload by Admin
+
+---
+
+## 👩‍💻 Developed By
+
+**Harini BR**
+
+B.Sc Computer Science
+
+Java Full Stack Developer | Web Developer
+
+---
+
+## 📸 Screenshots
+![Home Page](screenshots/home.png)
+![login Page](screenshots/login.png)
+![booking Page](screenshots/booking.png)
+![myBookings Page](screenshots/myBookings.png)
+![dashboard Page](screenshots/dashboard.png)
+![email Page](screenshots/email.png)
+![responsive screen](screenshots/responsive.png)
+
+---
+
 

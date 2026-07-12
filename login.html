@@ -506,7 +506,7 @@
 
           const message = await response.text();
 
-          alert(message);
+          alert("registration successful,please login to continue");
 
           if (response.ok) {
 
@@ -560,7 +560,7 @@
 
       catch (error) {
 
-        alert("Cannot connect to Spring Boot Server");
+        
 
         console.error(error);
 
