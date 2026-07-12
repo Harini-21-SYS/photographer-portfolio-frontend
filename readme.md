@@ -124,12 +124,19 @@ Java Full Stack Developer | Web Developer
 ---
 
 ## 📸 Screenshots
+##HOME PAGE
 ![Home Page](screenshots/home.png)
+##LOGIN PAGE
 ![login Page](screenshots/login.png)
+##BOOKING PAGE
 ![booking Page](screenshots/booking.png)
+##MY-BOOKINGS PAGE
 ![myBookings Page](screenshots/myBookings.png)
+##DASHBOARD PAGE
 ![dashboard Page](screenshots/dashboard.png)
+##EMAIL
 ![email Page](screenshots/email.png)
+##RESPONSIVE DESIGN
 ![responsive screen](screenshots/responsive.png)
 
 ---
